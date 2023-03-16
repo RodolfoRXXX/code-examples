@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  header_routes = [
+    {
+      link: '/normal',
+      icon: 'dvr',
+      name: 'Calculadora normal'
+    },
+    {
+      link: '/cientifica',
+      icon: 'dvr',
+      name: 'Calculadora cientifica'
+    },
+  ];
+
 }

@@ -10,9 +10,9 @@ import { DomSanitizer } from '@angular/platform-browser';
       <mat-icon>share</mat-icon>
     </button>
     <mat-menu #menu_share="matMenu" xPosition="before">
-      <button mat-menu-item><mat-icon svgIcon="whatsapp"></mat-icon>Whatsapp</button>
-      <button mat-menu-item><mat-icon svgIcon="instagram"></mat-icon>Instagram</button>
-      <button mat-menu-item><mat-icon svgIcon="facebook"></mat-icon>Facebook</button>
+      <button mat-menu-item (click)="share_social('whatsapp')"><mat-icon svgIcon="whatsapp"></mat-icon>Whatsapp</button>
+      <button mat-menu-item (click)="share_social('instagram')"><mat-icon svgIcon="instagram"></mat-icon>Instagram</button>
+      <button mat-menu-item (click)="share_social('facebook')"><mat-icon svgIcon="facebook"></mat-icon>Facebook</button>
     </mat-menu>
   `,
   styleUrls: ['./btn-share.component.css']
@@ -32,4 +32,9 @@ export class BtnShareComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl("assets/iconSvg/facebook.svg")
     );
   }
+
+  share_social(social: String){
+    console.log(social);
+  }
+
 }

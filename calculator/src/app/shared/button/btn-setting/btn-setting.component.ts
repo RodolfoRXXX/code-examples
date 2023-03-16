@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-btn-setting',
@@ -7,12 +7,17 @@ import { Component } from '@angular/core';
       <mat-icon>settings</mat-icon>
     </button>
     <mat-menu #menu_setting="matMenu" xPosition="before">
-      <a href="#" mat-menu-item><mat-icon>dvr</mat-icon>Calculadora normal</a>
-      <a href="#" mat-menu-item><mat-icon>dvr</mat-icon>Calculadora científica</a>
+      <a *ngFor="let route of routes" [routerLink]="route.link"  mat-menu-item><mat-icon>{{route.icon}}</mat-icon>{{route.name}}</a>
     </mat-menu>
   `,
   styleUrls: ['./btn-setting.component.css']
 })
-export class BtnSettingComponent {
+export class BtnSettingComponent implements OnInit {
+  
+  @Input() routes!: any;
+
+  ngOnInit(): void {
+  }
+
 
 }

@@ -9,6 +9,8 @@ import { HeaderComponent } from './shared/header/header.component';
 import { BtnSettingComponent } from './shared/button/btn-setting/btn-setting.component';
 import { BtnFavoriteComponent } from './shared/button/btn-favorite/btn-favorite.component';
 import { BtnShareComponent } from './shared/button/btn-share/btn-share.component';
+import { CalculadoraNormalComponent } from './pages/calculadora-normal/calculadora-normal.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { BtnShareComponent } from './shared/button/btn-share/btn-share.component
     HeaderComponent,
     BtnSettingComponent,
     BtnFavoriteComponent,
-    BtnShareComponent
+    BtnShareComponent,
+    CalculadoraNormalComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,
