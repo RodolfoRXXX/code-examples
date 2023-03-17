@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
+p {
+    font-family: 'Michroma', sans-serif;
+}
+
 .outer-box {
     padding: 1rem;
 }
@@ -14,6 +20,37 @@
 
 .screen-box {
     height: 30%;
+    width: 100%;
+    color: #fff;
+}
+
+.operation-box {
+    height: 50%;
+    font-weight: lighter;
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+}
+
+.operation-box p {
+    display: block;
+    margin-bottom: 0;
+    font-size: 18px;
+}
+
+.result-box {
+    height: 50%;
+    width: 100%;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    overflow-x: scroll;
+}
+
+.result-box p {
+    margin-bottom: 0;
+    font-size: 34px;
 }
 
 .keyboard-box {
@@ -25,4 +62,13 @@
 .keyboard-box button {
     width: 100%;
     height: 100%;
+}
+
+.keyboard-box button mat-icon {
+    margin-right: 0;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 1.4rem;
 }

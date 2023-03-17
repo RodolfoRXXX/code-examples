@@ -2,34 +2,41 @@
     <mat-card class="inner-box">
         <mat-card-content class="content-box">
             <div class="screen-box">
-                screen
+                <div class="operation-box">
+                    <p>{{first_number}} {{operation}} {{second_number}}</p>
+                </div>
+                <div class="result-box">
+                    <p *ngIf="actual_position == 0">{{result}}</p>
+                    <p *ngIf="actual_position == 1">{{first_number}}</p>
+                    <p *ngIf="actual_position == 2">{{second_number}}</p>
+                </div>
             </div>
             <div class="keyboard-box">
-                <button mat-flat-button aria-label="%"><mat-icon>percent</mat-icon></button>
-                <button mat-flat-button aria-label="%">CE</button>
-                <button mat-flat-button aria-label="%">C</button>
-                <button mat-flat-button aria-label="%"><mat-icon>keyboard_backspace</mat-icon></button>
-                <button mat-flat-button aria-label="%">/</button>
-                <button mat-flat-button aria-label="%">raíz</button>
-                <button mat-flat-button aria-label="%">7</button>
-                <button mat-flat-button aria-label="%">8</button>
-                <button mat-flat-button aria-label="%">9</button>
-                <button mat-flat-button aria-label="%"><mat-icon>clear</mat-icon></button>
-                <button mat-flat-button aria-label="%">^2</button>
-                <button mat-flat-button aria-label="%">4</button>
-                <button mat-flat-button aria-label="%">5</button>
-                <button mat-flat-button aria-label="%">6</button>
-                <button mat-flat-button aria-label="%"><mat-icon>minimize</mat-icon></button>
-                <button mat-flat-button aria-label="%">^3</button>
-                <button mat-flat-button aria-label="%">1</button>
-                <button mat-flat-button aria-label="%">2</button>
-                <button mat-flat-button aria-label="%">3</button>
-                <button mat-flat-button aria-label="%"><mat-icon>add</mat-icon></button>
-                <button mat-flat-button aria-label="%">1/x</button>
-                <button mat-flat-button aria-label="%">+/-</button>
-                <button mat-flat-button aria-label="%">0</button>
-                <button mat-flat-button aria-label="%">.</button>
-                <button mat-flat-button aria-label="%">=</button>
+                <button mat-flat-button (click)="setOnevalueOperation('%')" aria-label="%"><mat-icon>percent</mat-icon></button>
+                <button mat-flat-button (click)="setDeleteOperation('ce')" aria-label="ce">CE</button>
+                <button mat-flat-button (click)="setDeleteOperation('c')" aria-label="c">C</button>
+                <button mat-flat-button (click)="setDeleteOperation('del')" aria-label="delete"><mat-icon>keyboard_backspace</mat-icon></button>
+                <button mat-flat-button (click)="setSimpleOperation('/')" aria-label="divide">/</button>
+                <button mat-flat-button (click)="setOnevalueOperation('^root')" aria-label="square root">raíz</button>
+                <button mat-flat-button (click)="setNumber('7')" aria-label="7" class="bold">7</button>
+                <button mat-flat-button (click)="setNumber('8')" aria-label="8" class="bold">8</button>
+                <button mat-flat-button (click)="setNumber('9')" aria-label="9" class="bold">9</button>
+                <button mat-flat-button (click)="setSimpleOperation('x')" aria-label="product"><mat-icon>clear</mat-icon></button>
+                <button mat-flat-button (click)="setOnevalueOperation('^2')" aria-label="x2">^2</button>
+                <button mat-flat-button (click)="setNumber('4')" aria-label="4" class="bold">4</button>
+                <button mat-flat-button (click)="setNumber('5')" aria-label="5" class="bold">5</button>
+                <button mat-flat-button (click)="setNumber('6')" aria-label="6" class="bold">6</button>
+                <button mat-flat-button (click)="setSimpleOperation('-')"aria-label="minus"><mat-icon>minimize</mat-icon></button>
+                <button mat-flat-button (click)="setOnevalueOperation('^2')" aria-label="x3">^3</button>
+                <button mat-flat-button (click)="setNumber('1')" aria-label="1" class="bold">1</button>
+                <button mat-flat-button (click)="setNumber('2')" aria-label="2" class="bold">2</button>
+                <button mat-flat-button (click)="setNumber('3')" aria-label="3" class="bold">3</button>
+                <button mat-flat-button (click)="setSimpleOperation('+')"aria-label="add"><mat-icon>add</mat-icon></button>
+                <button mat-flat-button (click)="setOnevalueOperation('inverse')" aria-label="inverse">1/x</button>
+                <button mat-flat-button (click)="setOnevalueOperation('change')" aria-label="change sign">+/-</button>
+                <button mat-flat-button (click)="setNumber('0')" aria-label="0" class="bold">0</button>
+                <button mat-flat-button aria-label="coma">.</button>
+                <button mat-flat-button aria-label="equal" class="bold" color="accent">=</button>
             </div>
         </mat-card-content>
     </mat-card>
