@@ -6,13 +6,11 @@
                     <p>{{first_number}} {{operation}} {{second_number}}</p>
                 </div>
                 <div class="result-box">
-                    <p *ngIf="actual_position == 0">{{result}}</p>
-                    <p *ngIf="actual_position == 1">{{first_number}}</p>
-                    <p *ngIf="actual_position == 2">{{second_number}}</p>
+                    <p>{{result}}</p>
                 </div>
             </div>
             <div class="keyboard-box">
-                <button mat-flat-button (click)="setOnevalueOperation('%')" aria-label="%"><mat-icon>percent</mat-icon></button>
+                <button mat-flat-button (click)="setSimpleOperation('%')" aria-label="%"><mat-icon>percent</mat-icon></button>
                 <button mat-flat-button (click)="setDeleteOperation('ce')" aria-label="ce">CE</button>
                 <button mat-flat-button (click)="setDeleteOperation('c')" aria-label="c">C</button>
                 <button mat-flat-button (click)="setDeleteOperation('del')" aria-label="delete"><mat-icon>keyboard_backspace</mat-icon></button>
@@ -35,8 +33,8 @@
                 <button mat-flat-button (click)="setOnevalueOperation('inverse')" aria-label="inverse">1/x</button>
                 <button mat-flat-button (click)="setOnevalueOperation('change')" aria-label="change sign">+/-</button>
                 <button mat-flat-button (click)="setNumber('0')" aria-label="0" class="bold">0</button>
-                <button mat-flat-button aria-label="coma">.</button>
-                <button mat-flat-button aria-label="equal" class="bold" color="accent">=</button>
+                <button mat-flat-button aria-label="coma">,</button>
+                <button mat-flat-button (click)="getResult()" aria-label="equal" class="bold" color="accent">=</button>
             </div>
         </mat-card-content>
     </mat-card>
