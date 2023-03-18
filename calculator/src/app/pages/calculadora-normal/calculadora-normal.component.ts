@@ -42,7 +42,23 @@ export class CalculadoraNormalComponent {
     }
   }
 
-  //Comprende +, -, /, x
+  changeSign() {
+    if(this.result != '0') {
+      switch (this.actual_position) {
+        case 1:
+          this.first_number = ((parseInt(this.first_number)) * (-1)).toString();
+          this.result = this.first_number;
+          break;
+        case 2:
+          this.second_number = ((parseInt(this.second_number)) * (-1)).toString();
+          this.result = this.second_number;
+          this.operation = '';
+          break;
+      }
+    }
+  }
+
+  //Comprende +, -, /, x, %
   setSimpleOperation(oper: string) {
     switch (this.actual_position) {
       case 1:
@@ -63,16 +79,23 @@ export class CalculadoraNormalComponent {
     }
   }
 
+  //Comprende raíz, ^2, ^3, 1/x, +/- 
   setOnevalueOperation(oper: string) {
-    switch (this.actual_position) {
-      case 1:
-        this.operation = oper;
-        this.actual_position = 2;
-        break;
-      case 2:
-        this.operation = oper;
-        this.resolve();
-        break;
+    if(this.result != '0') {
+      this.first_number = this.result;
+      this.operation = oper;
+      this.actual_position = 2;
+      this.second_number = '';
+      this.resolve()
+            .then( (res) => {
+              this.result = res;
+            })
+            .catch( (error) => console.log(error));
+    } else{
+      this.first_number = '';
+      this.second_number = '';
+      this.operation = '';
+      this.result = '0';
     }
   }
 
@@ -89,17 +112,23 @@ export class CalculadoraNormalComponent {
   }
 
   getResult() {
-    if(this.first_number == '') {
-      this.result = '0';
-    } else if(this.second_number == '') {
-      this.result = this.first_number;
-    } else{
+    if((this.first_number != '') && (this.second_number != '')) {
       this.resolve()
-            .then( (res) => {
-              this.result = res;
-              this.actual_position = 2;
-            })
-            .catch( (error) => console.log(error));
+      .then( (res) => {
+        this.result = res;
+        this.actual_position = 2;
+      })
+      .catch( (error) => console.log(error));
+    } else if((this.first_number != '') && (this.second_number == '')) {
+      this.result = this.first_number;
+    } else if((this.first_number == '') && (this.second_number != '') && (this.operation == '+') || (this.operation == '-')) {
+      if(this.operation == '-') {
+        this.changeSign();
+      } else {
+        this.result = this.second_number;
+      }
+    } else {
+      this.result = '0';
     }
   }
 
@@ -130,6 +159,21 @@ export class CalculadoraNormalComponent {
         } else{
           res = parseInt(this.first_number) * (parseInt(this.second_number)/100);
         }
+        break;
+      case '(root)':
+        res = Math.sqrt(parseInt(this.first_number));
+        break;
+      case '^2':
+        res = parseInt(this.first_number) * parseInt(this.first_number);
+        break;
+      case '^3':
+        res = parseInt(this.first_number) * parseInt(this.first_number) * parseInt(this.first_number);
+        break;
+      case '(1/x)':
+        res = 1 / parseInt(this.first_number);
+        break;
+      case '(1/x)':
+        res = 1 / parseInt(this.first_number);
         break;
     }
     return res;

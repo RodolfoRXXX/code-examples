@@ -28,7 +28,7 @@ p {
     height: 50%;
     font-weight: lighter;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: flex-end;
 }
 
@@ -44,7 +44,7 @@ p {
     font-weight: bolder;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .result-box p {
