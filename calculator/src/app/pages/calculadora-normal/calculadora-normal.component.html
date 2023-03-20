@@ -33,7 +33,7 @@
                 <button mat-flat-button (click)="setOnevalueOperation('(1/x)')" aria-label="inverse">1/x</button>
                 <button mat-flat-button (click)="changeSign()" aria-label="change sign">+/-</button>
                 <button mat-flat-button (click)="setNumber('0')" aria-label="0" class="bold">0</button>
-                <button mat-flat-button aria-label="coma">,</button>
+                <button mat-flat-button (click)="setNumber('.')" aria-label="coma">.</button>
                 <button mat-flat-button (click)="getResult()" aria-label="equal" class="bold" color="accent">=</button>
             </div>
         </mat-card-content>

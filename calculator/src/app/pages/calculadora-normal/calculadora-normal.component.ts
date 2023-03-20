@@ -180,44 +180,44 @@ export class CalculadoraNormalComponent {
     let res = 0;
     switch (this.operation) {
       case '+':
-        res = parseInt(this.first_number) + parseInt(this.second_number);
+        res = parseFloat(this.first_number) + parseFloat(this.second_number);
         break;
       case '-':
-        res = parseInt(this.first_number) - parseInt(this.second_number);
+        res = parseFloat(this.first_number) - parseFloat(this.second_number);
         break;
       case '/':
-        if(parseInt(this.second_number) != 0){
-          res = parseInt(this.first_number) / parseInt(this.second_number);
+        if(parseFloat(this.second_number) != 0){
+          res = parseFloat(this.first_number) / parseFloat(this.second_number);
         } else{
             throw new Error("No se puede dividir por cero");
         }
         break;
       case 'x':
-        res = parseInt(this.first_number) * parseInt(this.second_number);
+        res = parseFloat(this.first_number) * parseFloat(this.second_number);
         break;
       case '%':
-        if(parseInt(this.second_number) == 0){
+        if(parseFloat(this.second_number) == 0){
           throw new Error("No se puede dividir por cero");
-        } else if((parseInt(this.second_number) >= 100)||(parseInt(this.second_number) <= 0)) {
+        } else if((parseFloat(this.second_number) >= 100)||(parseFloat(this.second_number) <= 0)) {
           throw new Error("El valor para obtener el porcecntaje debe estar entre 0 y 100");
         } else{
-          res = parseInt(this.first_number) * (parseInt(this.second_number)/100);
+          res = parseFloat(this.first_number) * (parseFloat(this.second_number)/100);
         }
         break;
       case '(root)':
-        res = Math.sqrt(parseInt(this.first_number));
+        res = Math.sqrt(parseFloat(this.first_number));
         break;
       case '^2':
-        res = parseInt(this.first_number) * parseInt(this.first_number);
+        res = parseFloat(this.first_number) * parseFloat(this.first_number);
         break;
       case '^3':
-        res = parseInt(this.first_number) * parseInt(this.first_number) * parseInt(this.first_number);
+        res = parseFloat(this.first_number) * parseFloat(this.first_number) * parseFloat(this.first_number);
         break;
       case '(1/x)':
-        res = 1 / parseInt(this.first_number);
+        res = 1 / parseFloat(this.first_number);
         break;
       case '(1/x)':
-        res = 1 / parseInt(this.first_number);
+        res = 1 / parseFloat(this.first_number);
         break;
     }
     return res;
