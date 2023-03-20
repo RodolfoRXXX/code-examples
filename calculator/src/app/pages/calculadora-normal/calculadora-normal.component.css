@@ -22,38 +22,52 @@ p {
     height: 30%;
     width: 100%;
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .operation-box {
-    height: 50%;
+    height: 47%;
+    width: 100%;
     font-weight: lighter;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    overflow-y: auto;
+}
+
+.operation-box::-webkit-scrollbar {
+    width: 5px;
 }
 
 .operation-box p {
     display: block;
     margin-bottom: 0;
     font-size: 18px;
+    line-height: 18px;
+    word-break: break-word;
 }
 
 .result-box {
-    height: 50%;
+    height: 47%;
     width: 100%;
-    font-weight: bolder;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    font-weight: bold;
+    overflow-y: auto;
 }
 
 .result-box p {
+    display: block;
     margin-bottom: 0;
-    font-size: 34px;
+    font-size: 45px; /*34px*/
+    line-height: 45px;
+    word-break: break-word;
+    text-align: end;
 }
 
 .keyboard-box {
     height: 70%;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
 }

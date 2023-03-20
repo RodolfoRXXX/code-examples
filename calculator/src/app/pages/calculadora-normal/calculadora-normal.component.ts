@@ -7,8 +7,6 @@ import { Component } from '@angular/core';
 })
 export class CalculadoraNormalComponent {
 
-  op_running: boolean = true;
-
   first_number: string = '';
   second_number: string = '';
   actual_position: number = 1;
