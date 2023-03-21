@@ -1,4 +1,10 @@
 .body {
-    height: calc(100vh - 64px);
+    min-height: calc(100vh - 64px);
     background-color: rgb(33, 37, 41);
+}
+
+@media (max-width: 500px) {
+    .body {
+        min-height: calc(100vh - 56px);
+    }
 }

@@ -6,14 +6,25 @@
     text-align: center;
     padding: 1.5rem 0 0.5rem;
     margin-bottom: 0;
+    font-weight: bold;
 }
 
 .subtitle {
     padding: 0.5rem;
     text-align: center;
+    text-decoration: underline;
 }
 
 .text {
     padding: 0.5rem 1rem;
     text-align: justify;
+}
+
+.container-box {
+    overflow-y: auto;
+    height: 100%;
+}
+
+.index-link {
+    text-decoration: none;
 }
