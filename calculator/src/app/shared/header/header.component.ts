@@ -11,12 +11,12 @@ export class HeaderComponent {
     {
       link: '/normal',
       icon: 'dvr',
-      name: 'Calculadora normal'
+      name: 'Calculadora'
     },
     {
-      link: '/cientifica',
-      icon: 'dvr',
-      name: 'Calculadora cientifica'
+      link: '/code',
+      icon: 'build',
+      name: 'Código'
     },
   ];
 

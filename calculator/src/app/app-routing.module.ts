@@ -6,7 +6,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 const routes: Routes = [
   { path: '', redirectTo: 'normal', pathMatch: 'full' },
   { path: 'normal', component: CalculadoraNormalComponent },
-  { path: 'cientifica', loadChildren: () => import('./pages/calculadora-cientifica/calculadora-cientifica.module').then(m => m.CalculadoraCientificaModule) },
+  { path: 'code', loadChildren: () => import('./pages/codigo/codigo.module').then(m => m.CodigoModule) },
   { path: '**', component: NotFoundPageComponent }
 ];
 
