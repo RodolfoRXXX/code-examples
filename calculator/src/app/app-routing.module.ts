@@ -6,7 +6,8 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 const routes: Routes = [
   { path: '', redirectTo: 'normal', pathMatch: 'full' },
   { path: 'normal', component: CalculadoraNormalComponent },
-  { path: 'code', loadChildren: () => import('./pages/codigo/codigo.module').then(m => m.CodigoModule) },
+  { path: 'code', loadChildren: () => import('./pages/codigo/codigo.module')
+                  .then(m => m.CodigoModule) },
   { path: '**', component: NotFoundPageComponent }
 ];
 
