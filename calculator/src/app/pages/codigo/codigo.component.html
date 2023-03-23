@@ -154,43 +154,104 @@
     <div class="article-box">
         <h2 #target5 class="title">Cómo toma los números la calculadora?</h2>
         <p class="text">
-            En el header de la aplicación contamos con tres botones, <em>setting</em>, <em>like</em> y <em>share</em>. Estos botones realizan acciones o redirigen a rutas en la aplicación.
-            Pero a nivel de código su diseño es diferente a como generalmente se los crea.
+            La aplicación está conformada por un teclado que contiene números, operaciones simples y complejas y algunas funciones básicas.
+            El funcionamiento de cada botón depende de la tarea que cumpla, en este apartado se verá cómo los valores numéricos son tomados por la calculadora y qué función interviene.
         </p>
         <div class="img-box">
-            <img class="img-fluid img-style" src="../../../assets/images/tree-view.png" alt="tree-view">
+            <img class="img-fluid img-style" src="../../../assets/images/button-number-view.png" alt="button-number-view">
         </div>
         <p class="text m-0">
-            En la imagen anterior se observa el árbol de estos botones y como se dividen. Por un lado, tenemos dos carpetas bien definidas, la <i>Button</i> y la <i>header</i>. 
-            Mientras que en la carpeta <i>header</i> se encuentra el componente del navbar de la aplicación, en la carpeta <i>button</i>, están los botones que componen este navbar, 
-            y cada uno es un componente diferente.
+            En la imagen anterior se puede ver un button que al ser presionado, entrega el número <b>7</b>. Esto se logra mediante la función <em>setNumber('7')</em>, 
+            que envía el número como un string para ser tomado por la función y ejecutar una sentencia de código que mostrará el número en pantalla.
         </p>
         <p class="text m-0">
-            A continuación se muestra el código de uno de estos componentes de botones y es posible observar su estructura y cómo puede definirse como un elemento independiente del código.
+            Entre otros atributos que tiene el button de la imagen, se encuentran <i>mat-flat-button</i> que es un atributo de <em>Angular Material</em> que sirve para dar estilo al button. También está el atributo <em>aria-label</em> 
+            que sirve para ser reconocido por tecnología asistiva y por último se encuentra una clase que también suma algunos estilos al button.
         </p>
         <div class="img-box">
-            <img class="img-fluid img-style" src="../../../assets/images/component-view.png" alt="component-view">
+            <img class="img-fluid img-style" src="../../../assets/images/function-number-view.png" alt="function-number-view">
         </div>
         <p class="text m-0">
-            A primera vista, se puede ver como se utiliza el código HTML en linea directamente desde el archivo .ts, esto ayuda a reducir la cantidad de archivos en el código y así simplificarlo.
-            Lo mismo se puede realizar con el archivo .css, utilizando los estilos directamente en el archivo .ts, pero en este caso se prefirió dejarlo separado para que el código sea más fácilmente visible.
+           En la función que es llamada por el button numérico se puede ver una primera sentencia condicional que verifica el estado de una variable para tomar un camino u otro. En este caso, lo que la sentencia verifica es si el número elegido 
+           va a formar parte del primer miembro de la operación o del segundo. En caso de que la operación solo necesite de un valor, el número a agregar solo formará parte de ese miembro.
         </p>
         <p class="text m-0">
-            Este componente contiene el button propiamente dicho, que permite desplegar un menú de opciones, con las rutas a elegir. Se observa que dichas rutas son pasadas desde el componente padre como parámetros, esto se realiza en un array
-            y mediante una directiva <b>*NgFor</b> se recorre el arreglo para ir mostrando en vista las diversas rutas con toda su informacion.
-        </p>
-        <p class="text m-0">
-            Esta forma de descomponer el código general en pequeños componentes es muy útil al momento de encontrar fallas o bugs e incluso cuando se desea actualizar el estilo de un componente, porque esta forma de modularizar el código permite que solo modifiquemos dicho 
-            componente y estos cambios se verán reflejados en todas las secciones de la vista donde dicho componente sea llamado.
+            A su vez, en cada sentencia condicional del bloque <em>switch</em> hay un bloque condicional <em>if</em> que comprueba si el número elegido será el primero del miembro o se agregará a una cadena de números ya existente para completa 
+            los miembros que formarán parte de la operación.
         </p>
     </div>
     <hr>
     
+    <div class="article-box">
+        <h2 #target6 class="title">Definiendo una función para operaciones simples</h2>
+        <p class="text">
+            Funciones simples para esta aplicación son llamadas a aquellas operaciones de suma, resta, producto, cociente y porcentaje. 
+            Esta aplicación tiene una función específica para tratarlas ya que necesitan de dos miembros para que puedan ser resueltas. 
+            La función que las procesa se llama <em>setSimpleOperation()</em>, que toma como parámetro el tipo de operación a realizar.
+        </p>
+        <div class="img-box">
+            <img class="img-fluid img-style" src="../../../assets/images/function-operation-view.png" alt="function-operation-view">
+        </div>
+        <p class="text m-0">
+            Esta función en su inicio cuenta con un bloque condicional <em>switch</em> que verifica la posición del puntero, si el mismo se encuentra en la primera posición, lo que querría decir que los valores numéricos ingresados por teclado se agregaron 
+            al primer miembro, entonces la función ingresa a la primera sección del bloque y cierra el primer miembro, valorizando la variable <em>oper</em>(que indica la operación a realizar) y dando el contról al segundo miembro para que puedan agregarse 
+            valores numéricos a través del teclado para completar la operación.
+        </p>
+        <p class="text m-0">
+            En caso de que el puntero se encuentre en el segundo miembro, verifica mediante un bloque condicional interno <em>if</em> si el segundo miembro no está vacío, en caso de que sí no continuaría ya que no habrían dos miembros para realizar la operación.
+            Si por el otro lado, el segundo miembro tuviera un valor, pero el primero no, lo valorizaría con un valor '0', esto lo hace para solventar aquellos casos en donde se utiliza el signo menos como indicador de número negativo de un valor ingresado. 
+            Una vez resueltos estos condicionales, procedería a llamar a una función <em>resolve()</em> que toma los miembros, la operación a realizar entre ellos y devuelve un resultado, que esta función espera a que termine de completarse para luego mostrarla en pantalla.
+        </p>
+    </div>
+    <hr>
 
-    <h2 #target6 class="title">Definiendo una función para operaciones simples</h2>
+    <div class="article-box">
+        <h2 #target7 class="title">Definiendo una función para operaciones de un solo valor</h2>
+        <p class="text">
+            La función de un solo valor son aquellas operaciones que solo necesitan de un miembro de valores numéricos para resolverse. 
+            En esta aplicación, aquellas operaciones que son tratadas de esa forma son raíz cuadrada, potencia cuadrada, potencia cúbica y el valor inverso y son llamadas por la función <em>setOnevalueOperation()</em> 
+            que recibe como parámetro el tipo de operación a realizar.
+        </p>
+        <div class="img-box">
+            <img class="img-fluid img-style" src="../../../assets/images/function-onevalue-view.png" alt="function-onevalue-view">
+        </div>
+        <p class="text m-0">
+            Esta función en su inicio cuenta con un bloque condicional <em>switch</em> que verifica la posición del puntero, si el mismo se encuentra en la primera posición, lo que querría decir que los valores numéricos ingresados por teclado se agregaron 
+            al primer miembro, entonces la función ingresa a la primera sección del bloque y cierra el primer miembro, valorizando la variable <em>oper</em>(que indica la operación a realizar) y dando el contról al segundo miembro para que puedan agregarse 
+            valores numéricos a través del teclado para completar la operación.
+        </p>
+        <p class="text m-0">
+            En caso de que el puntero se encuentre en el segundo miembro, verifica mediante un bloque condicional interno <em>if</em> si el segundo miembro no está vacío, en caso de que sí no continuaría ya que no habrían dos miembros para realizar la operación.
+            Si por el otro lado, el segundo miembro tuviera un valor, pero el primero no, lo valorizaría con un valor '0', esto lo hace para solventar aquellos casos en donde se utiliza el signo menos como indicador de número negativo de un valor ingresado. 
+            Una vez resueltos estos condicionales, procedería a llamar a una función <em>resolve()</em> que toma los miembros, la operación a realizar entre ellos y devuelve un resultado, que esta función espera a que termine de completarse para luego mostrarla en pantalla.
+        </p>
+    </div>
+    <hr>
 
-    <h2 #target7 class="title">Definiendo una función para operaciones de un solo valor</h2>
-
-    <h2 #target8 class="title" >Obteniendo el resultado de las operaciones y mostrándolas en pantalla</h2>
-
+    <div class="article-box">
+        <h2 #target8 class="title" >Obteniendo el resultado de las operaciones y mostrándolas en pantalla</h2>
+        <p class="text">
+            El resultado de las operaciones realizadas en la aplicación calculadora se muestra en pantalla luego de haber realizado una de dos acciones, oprimir el botón <em>igual(=)</em> o presionando cualquier botón de las operaciones simples, como ser, <em>suma, resta, producto o cociente</em>.
+            La función que realiza esto en la aplicación lleva el nombre de <em>getResult()</em>, pero esta es solo una aplicación intermedia, la verdadera función que ejecuta las operaciones es la función asíncrona <em>resolve()</em>. 
+        </p>
+        <div class="img-box">
+            <img class="img-fluid img-style" src="../../../assets/images/get-result.png" alt="get-result">
+        </div>
+        <p class="text m-0">
+            La imagen anterior muestra la función intermedia <em>getResult()</em>. Esta función es llamada por el botón <em>igual(=)</em> o alguna otra función que necesite procesar el resultado de una operación.
+        </p>
+        <p class="text m-0">
+            Esta función determina las condiciones para obtener el resultado de una operación basándose en si ambos miembros tienen valores, si solo el primer miembro tiene un valor o si solo el segundo lo tiene, según sea el caso, realizará diversas operaciones antes de enviar el contról a la función <em>Resolve()</em> 
+            para que entregue un resultado. Resultado que luego de recibirlo, lo mostrará en pantalla.
+        </p>
+        <div class="img-box">
+            <img class="img-fluid img-style" src="../../../assets/images/resolve.png" alt="resolve">
+        </div>
+        <p class="text m-0">
+            En esta función llamada <em>resolve()</em> asíncrona que devuelve una promesa es donde se resuelven todas las operaciones. La misma inicia con un bucle de tipo <em>switch</em> que es el encargado de determinar la operación 
+            a ejecutar dependiendo del tipo de operación elegida. Luego de esto, se realiza un parseo de los valores a tipo coma flotante, para poder operar sobre los valores numéricos con decimales y por último se ejecuta la operación. 
+            El resultado de dicha operación es el que se devuelve como una promesa a la función que lo llamó y así ésta puede mostrarlo en la pantalla.
+        </p>
+    </div>
+    <hr>
 </section>
