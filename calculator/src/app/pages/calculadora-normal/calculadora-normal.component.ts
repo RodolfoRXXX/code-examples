@@ -63,33 +63,23 @@ export class CalculadoraNormalComponent {
         this.actual_position = 2;
         break;
       case 2:
-        if(this.first_number == '') {
-          this.first_number = '0';
+        if(this.second_number != '') {
+          (this.first_number == '')?this.first_number = '0':'';
           this.resolve()
-            .then( (res) => {
-              this.result = res;
-              this.actual_position = 2;
-              this.first_number = res;
-              this.operation = oper;
-              this.second_number = '';
-            })
-            .catch( (error) => console.log(error));
-        } else if(this.second_number != '') {
-          this.resolve()
-            .then( (res) => {
-              this.result = res;
-              this.actual_position = 2;
-              this.first_number = res;
-              this.operation = oper;
-              this.second_number = '';
-            })
-            .catch( (error) => console.log(error));
+              .then( (res) => {
+                this.result = res;
+                this.actual_position = 2;
+                this.first_number = res;
+                this.operation = oper;
+                this.second_number = '';
+              })
+              .catch( (error) => console.log(error));
         }
         break;
     }
   }
 
-  //Comprende raíz, ^2, ^3, 1/x, +/- 
+  //Comprende raíz, ^2, ^3, 1/x 
   setOnevalueOperation(oper: string) {
     if(this.result != '0') {
       this.first_number = this.result;
@@ -162,7 +152,11 @@ export class CalculadoraNormalComponent {
       .catch( (error) => console.log(error));
     } else if((this.first_number != '') && (this.second_number == '')) {
       this.result = this.first_number;
-    } else if((this.first_number == '') && (this.second_number != '') && (this.operation == '+') || (this.operation == '-')) {
+    } else if(
+        (this.first_number == '') && 
+        (this.second_number != '') && 
+        (this.operation == '+') || (this.operation == '-')
+      ) {
       if(this.operation == '-') {
         this.changeSign();
       } else {
@@ -186,9 +180,7 @@ export class CalculadoraNormalComponent {
       case '/':
         if(parseFloat(this.second_number) != 0){
           res = parseFloat(this.first_number) / parseFloat(this.second_number);
-        } else{
-            throw new Error("No se puede dividir por cero");
-        }
+        } else{ throw new Error("No se puede dividir por cero"); }
         break;
       case 'x':
         res = parseFloat(this.first_number) * parseFloat(this.second_number);

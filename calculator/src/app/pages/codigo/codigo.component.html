@@ -1,6 +1,6 @@
 <section class="container">
     <h1 class="title">Calculator</h1>
-    <h3 class="subtitle">Código de ejecución de la aplicación Calculator</h3>  
+    <h2 class="subtitle">Código de ejecución de la aplicación Calculator</h2>  
 </section>
 
 <section class="container container-box">
@@ -15,108 +15,243 @@
         <li><a (click)="scrollToElement(target1)" mat-button color="accent" class="index-link">Cómo funciona la aplicación?</a></li>
         <li><a (click)="scrollToElement(target2)" mat-button color="accent" class="index-link">De cuantas partes se compone?</a></li>
         <li><a (click)="scrollToElement(target3)" mat-button color="accent" class="index-link">Cómo están definidas las rutas?</a></li>
-        <li><a (click)="scrollToElement(target4)" mat-button color="accent" class="index-link">Cómo se creó el header para la barra de navegación?</a></li>
-        <li><a (click)="scrollToElement(target5)" mat-button color="accent" class="index-link">Los botones del header como componentes independientes</a></li>
-        <li><a (click)="scrollToElement(target6)" mat-button color="accent" class="index-link">Cómo se definió el marco de la calculadora?</a></li>
-        <li><a (click)="scrollToElement(target7)" mat-button color="accent" class="index-link">Cómo toma los números la calculadora?</a></li>
-        <li><a (click)="scrollToElement(target8)" mat-button color="accent" class="index-link">Definiendo una función para operaciones simples</a></li>
-        <li><a (click)="scrollToElement(target9)" mat-button color="accent" class="index-link">Definiendo una función para operaciones de un solo valor</a></li>
-        <li><a (click)="scrollToElement(target10)" mat-button color="accent" class="index-link">Obteniendo el resultado de las operaciones y mostrándolas en pantalla</a></li>
+        <li><a (click)="scrollToElement(target4)" mat-button color="accent" class="index-link">Los botones del header como componentes independientes</a></li>
+        <li><a (click)="scrollToElement(target5)" mat-button color="accent" class="index-link">Cómo toma los números la calculadora?</a></li>
+        <li><a (click)="scrollToElement(target6)" mat-button color="accent" class="index-link">Definiendo una función para operaciones simples</a></li>
+        <li><a (click)="scrollToElement(target7)" mat-button color="accent" class="index-link">Definiendo una función para operaciones de un solo valor</a></li>
+        <li><a (click)="scrollToElement(target8)" mat-button color="accent" class="index-link">Obteniendo el resultado de las operaciones y mostrándolas en pantalla</a></li>
     </ol>
-
-    <h2 #target1 class="title">Cómo funciona la aplicación?</h2>
-    <p>
-        La aplicación <strong><em>Calculator</em></strong> es una calculadora digital básica que cuenta con todas las operaciones de una calculadora física.<br>
-        Estas se dividen en <span style="text-decoration: underline;">Operaciones básicas</span>, las cuales son:
-    </p>
-    <ul>
-        <li>Suma</li>
-        <li>Resta</li>
-        <li>División</li>
-        <li>Multiplicación</li>
-        <li>Porcentaje</li>
-    </ul>
-    <p>
-        Luego tenemos las <span style="text-decoration: underline;">Operaciones de un solo valor</span>, estas son:
-    </p>
-    <ul>
-        <li>Raíz cuadrada</li>
-        <li>Potencia de 2</li>
-        <li>Potencia de 3</li>
-        <li>Inverso de un valor</li>
-        <li>Cambio de signo</li>
-    </ul>
     <hr>
 
-    <h2 #target2 class="title">De cuantas partes se compone?</h2>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-        Mollitia, placeat voluptatibus magnam amet dolorem incidunt 
-        hic quam ipsam alias aspernatur in debitis optio nesciunt! 
-        Delectus dignissimos culpa excepturi veniam dolores.
-    </p>
+    <div class="article-box">
+        <h2 #target1 class="title">Cómo funciona la aplicación?</h2>
+        <p class="text">
+            La aplicación <strong><em>Calculator</em></strong> es una calculadora digital básica que cuenta con todas las operaciones de una calculadora física.<br>
+            Estas se dividen en <span style="text-decoration: underline;">Operaciones básicas</span>, las cuales son:
+        </p>
+        <ul class="list-text">
+            <li>Suma</li>
+            <li>Resta</li>
+            <li>División</li>
+            <li>Multiplicación</li>
+            <li>Porcentaje</li>
+        </ul>
+        <p class="text">
+            Luego tenemos las <span style="text-decoration: underline;">Operaciones de un solo valor</span>, estas son:
+        </p>
+        <ul class="list-text">
+            <li>Raíz cuadrada</li>
+            <li>Potencia de 2</li>
+            <li>Potencia de 3</li>
+            <li>Inverso de un valor</li>
+            <li>Cambio de signo</li>
+        </ul>
+        <p class="text">
+            Su funcionamiento es similar a una calculadora física, muestra el resultado en varias lineas si el mismo fuera demasiado largo y 
+            el visor superior permite observar la operación que se llevó a cabo.
+            El uso de la calculadora para formato no táctil, es exclusivo del teclado de la computadora. En el caso de un dispositivo táctil, los datos se ingresan 
+            por medio del teclado dque exhibe la calculadora.
+        </p>
+    </div>
     <hr>
 
-    <h2 #target3 class="title">Cómo están definidas las rutas?</h2>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-        Mollitia, placeat voluptatibus magnam amet dolorem incidunt 
-        hic quam ipsam alias aspernatur in debitis optio nesciunt! 
-        Delectus dignissimos culpa excepturi veniam dolores.
-    </p>
+    <div class="article-box">
+        <h2 #target2 class="title">De cuantas partes se compone?</h2>
+        <p class="text">
+            La aplicación <strong><em>Calculator</em></strong> se compone de varias partes a nivel código, que se intercomunican entre sí y permiten que la calculadora funcione de forma eficiente.<br>
+            Estas son:
+        </p>
+        <ul class="list-text">
+            <li>
+                <b>El header de la aplicación: </b>
+                <div class="img-box">
+                    <img class="img-fluid img-style" src="../../../assets/images/header-code.png" alt="header-code">
+                </div>
+                <p class="m-0">
+                    Este navbar tiene tres buttons.
+                </p>
+                <p class="text m-0"><b>El botón <span><mat-icon class="icon-text">settings</mat-icon></span></b> permite elegir entre acceder al componente 
+                    de la calculadora o al componente de la explicación del código.
+                </p>
+                <p class="text m-0"><b>El botón <span><mat-icon class="icon-text">favorite</mat-icon></span></b> dá la posibilidad de dar "Me Gusta" a la aplicación.
+                </p>
+                <p class="text m-0"><b>El botón <span><mat-icon class="icon-text">share</mat-icon></span></b> permite compartir el link de la aplicación para que otros puedan conocerla.
+                </p>
+            </li>
+            <li>
+                <b>La aplicación calculadora: </b>
+                <div class="img-box">
+                    <img class="img-fluid img-style" src="../../../assets/images/calculator-view.png" alt="calculator-view">
+                </div>
+                <p class="m-0">
+                    Es una calculadora con el teclado con números y operaciones, también cuenta con dos visores, uno para el resultado de las operaciones y un segundo para mostrar la operación en sí.
+                </p>
+            </li>
+        </ul>
+    </div>
     <hr>
 
-    <h2 #target4 class="title">Cómo se creó el header para la barra de navegación?</h2>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-        Mollitia, placeat voluptatibus magnam amet dolorem incidunt 
-        hic quam ipsam alias aspernatur in debitis optio nesciunt! 
-        Delectus dignissimos culpa excepturi veniam dolores.
-    </p>
+    <div class="article-box">
+        <h2 #target3 class="title">Cómo están definidas las rutas?</h2>
+        <p class="text">
+            La aplicación tiene pocos componentes, pero de todos ellos, nos encontramos solo con dos que son los más importantes.
+        </p>
+        <div class="img-box">
+            <img class="img-fluid img-style" src="../../../assets/images/route-view.png" alt="route-view">
+        </div>
+        <p class="text m-0">
+            El componente <em>Calculadora-normal.component</em> carga cuando el endpoint de la URL es <b>"/normal"</b>. Este componente carga cuando se carga la aplicación, 
+            porque es parte de la vista principal que se muestra al inicio de la aplicación.
+        </p>
+        <p class="text m-0">
+            Por otro lado, el componente <em>Codigo.component</em> se carga mediante <b>LazyLoading</b>. LazyLoading es una herramienta que nos dá <b>Angular</b>
+            para ayudarnos a mejorar la performance de la aplicación. En este caso, el módulo que contiene el componente en cuestión no carga al inicio de la aplicación, sino que lo hace 
+            cuando se elige la ruta del componente, es decir <b>"/code"</b>.
+        </p>
+        <p class="text m-0">
+            Además se pueden observar dos endpoints más, uno vacío(""), que permite que la página rediriga al componente <em>Calculadora-normal.component</em> al iniciar la aplicación, y por 
+            otro lado, el endpoint doble asterisco("**") que captura todos los endpoints que no existan y despliega el componente <em>not-found-page.component</em> que muestra una vista de 
+            "Página no encontrada". Es necesario aclarar que esta última ruta siempre debe colocarse a lo último del listado de rutas, así captura todos los endpoints que no pertenecen a una ruta declarada.
+        </p>
+    </div>
     <hr>
 
-    <h2 #target5 class="title">Los botones del header como componentes independientes</h2>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-        Mollitia, placeat voluptatibus magnam amet dolorem incidunt 
-        hic quam ipsam alias aspernatur in debitis optio nesciunt! 
-        Delectus dignissimos culpa excepturi veniam dolores.
-    </p>
+    <div class="article-box">
+        <h2 #target4 class="title">Los botones del header como componentes independientes</h2>
+        <p class="text">
+            En el header de la aplicación contamos con tres botones, <em>setting</em>, <em>like</em> y <em>share</em>. Estos botones realizan acciones o redirigen a rutas en la aplicación.
+            Pero a nivel de código su diseño es diferente a como generalmente se los crea.
+        </p>
+        <div class="img-box">
+            <img class="img-fluid img-style" src="../../../assets/images/tree-view.png" alt="tree-view">
+        </div>
+        <p class="text m-0">
+            En la imagen anterior se observa el árbol de estos botones y como se dividen. Por un lado, tenemos dos carpetas bien definidas, la <i>Button</i> y la <i>header</i>. 
+            Mientras que en la carpeta <i>header</i> se encuentra el componente del navbar de la aplicación, en la carpeta <i>button</i>, están los botones que componen este navbar, 
+            y cada uno es un componente diferente.
+        </p>
+        <p class="text m-0">
+            A continuación se muestra el código de uno de estos componentes de botones y es posible observar su estructura y cómo puede definirse como un elemento independiente del código.
+        </p>
+        <div class="img-box">
+            <img class="img-fluid img-style" src="../../../assets/images/component-view.png" alt="component-view">
+        </div>
+        <p class="text m-0">
+            A primera vista, se puede ver como se utiliza el código HTML en linea directamente desde el archivo .ts, esto ayuda a reducir la cantidad de archivos en el código y así simplificarlo.
+            Lo mismo se puede realizar con el archivo .css, utilizando los estilos directamente en el archivo .ts, pero en este caso se prefirió dejarlo separado para que el código sea más fácilmente visible.
+        </p>
+        <p class="text m-0">
+            Este componente contiene el button propiamente dicho, que permite desplegar un menú de opciones, con las rutas a elegir. Se observa que dichas rutas son pasadas desde el componente padre como parámetros, esto se realiza en un array
+            y mediante una directiva <b>*NgFor</b> se recorre el arreglo para ir mostrando en vista las diversas rutas con toda su informacion.
+        </p>
+        <p class="text m-0">
+            Esta forma de descomponer el código general en pequeños componentes es muy útil al momento de encontrar fallas o bugs e incluso cuando se desea actualizar el estilo de un componente, porque esta forma de modularizar el código permite que solo modifiquemos dicho 
+            componente y estos cambios se verán reflejados en todas las secciones de la vista donde dicho componente sea llamado.
+        </p>
+    </div>
+    <hr>
+    
+    <div class="article-box">
+        <h2 #target5 class="title">Cómo toma los números la calculadora?</h2>
+        <p class="text">
+            La aplicación está conformada por un teclado que contiene números, operaciones simples y complejas y algunas funciones básicas.
+            El funcionamiento de cada botón depende de la tarea que cumpla, en este apartado se verá cómo los valores numéricos son tomados por la calculadora y qué función interviene.
+        </p>
+        <div class="img-box">
+            <img class="img-fluid img-style" src="../../../assets/images/button-number-view.png" alt="button-number-view">
+        </div>
+        <p class="text m-0">
+            En la imagen anterior se puede ver un button que al ser presionado, entrega el número <b>7</b>. Esto se logra mediante la función <em>setNumber('7')</em>, 
+            que envía el número como un string para ser tomado por la función y ejecutar una sentencia de código que mostrará el número en pantalla.
+        </p>
+        <p class="text m-0">
+            Entre otros atributos que tiene el button de la imagen, se encuentran <i>mat-flat-button</i> que es un atributo de <em>Angular Material</em> que sirve para dar estilo al button. También está el atributo <em>aria-label</em> 
+            que sirve para ser reconocido por tecnología asistiva y por último se encuentra una clase que también suma algunos estilos al button.
+        </p>
+        <div class="img-box">
+            <img class="img-fluid img-style" src="../../../assets/images/function-number-view.png" alt="function-number-view">
+        </div>
+        <p class="text m-0">
+           En la función que es llamada por el button numérico se puede ver una primera sentencia condicional que verifica el estado de una variable para tomar un camino u otro. En este caso, lo que la sentencia verifica es si el número elegido 
+           va a formar parte del primer miembro de la operación o del segundo. En caso de que la operación solo necesite de un valor, el número a agregar solo formará parte de ese miembro.
+        </p>
+        <p class="text m-0">
+            A su vez, en cada sentencia condicional del bloque <em>switch</em> hay un bloque condicional <em>if</em> que comprueba si el número elegido será el primero del miembro o se agregará a una cadena de números ya existente para completa 
+            los miembros que formarán parte de la operación.
+        </p>
+    </div>
+    <hr>
+    
+    <div class="article-box">
+        <h2 #target6 class="title">Definiendo una función para operaciones simples</h2>
+        <p class="text">
+            Funciones simples para esta aplicación son llamadas a aquellas operaciones de suma, resta, producto, cociente y porcentaje. 
+            Esta aplicación tiene una función específica para tratarlas ya que necesitan de dos miembros para que puedan ser resueltas. 
+            La función que las procesa se llama <em>setSimpleOperation()</em>, que toma como parámetro el tipo de operación a realizar.
+        </p>
+        <div class="img-box">
+            <img class="img-fluid img-style" src="../../../assets/images/function-operation-view.png" alt="function-operation-view">
+        </div>
+        <p class="text m-0">
+            Esta función en su inicio cuenta con un bloque condicional <em>switch</em> que verifica la posición del puntero, si el mismo se encuentra en la primera posición, lo que querría decir que los valores numéricos ingresados por teclado se agregaron 
+            al primer miembro, entonces la función ingresa a la primera sección del bloque y cierra el primer miembro, valorizando la variable <em>oper</em>(que indica la operación a realizar) y dando el contról al segundo miembro para que puedan agregarse 
+            valores numéricos a través del teclado para completar la operación.
+        </p>
+        <p class="text m-0">
+            En caso de que el puntero se encuentre en el segundo miembro, verifica mediante un bloque condicional interno <em>if</em> si el segundo miembro no está vacío, en caso de que sí no continuaría ya que no habrían dos miembros para realizar la operación.
+            Si por el otro lado, el segundo miembro tuviera un valor, pero el primero no, lo valorizaría con un valor '0', esto lo hace para solventar aquellos casos en donde se utiliza el signo menos como indicador de número negativo de un valor ingresado. 
+            Una vez resueltos estos condicionales, procedería a llamar a una función <em>resolve()</em> que toma los miembros, la operación a realizar entre ellos y devuelve un resultado, que esta función espera a que termine de completarse para luego mostrarla en pantalla.
+        </p>
+    </div>
     <hr>
 
-    <h2 #target6 class="title">Cómo se definió el marco de la calculadora?</h2>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-        Mollitia, placeat voluptatibus magnam amet dolorem incidunt 
-        hic quam ipsam alias aspernatur in debitis optio nesciunt! 
-        Delectus dignissimos culpa excepturi veniam dolores.
-    </p>
+    <div class="article-box">
+        <h2 #target7 class="title">Definiendo una función para operaciones de un solo valor</h2>
+        <p class="text">
+            La función de un solo valor son aquellas operaciones que solo necesitan de un miembro de valores numéricos para resolverse. 
+            En esta aplicación, aquellas operaciones que son tratadas de esa forma son raíz cuadrada, potencia cuadrada, potencia cúbica y el valor inverso y son llamadas por la función <em>setOnevalueOperation()</em> 
+            que recibe como parámetro el tipo de operación a realizar.
+        </p>
+        <div class="img-box">
+            <img class="img-fluid img-style" src="../../../assets/images/function-onevalue-view.png" alt="function-onevalue-view">
+        </div>
+        <p class="text m-0">
+            Esta función en su inicio cuenta con un bloque condicional <em>switch</em> que verifica la posición del puntero, si el mismo se encuentra en la primera posición, lo que querría decir que los valores numéricos ingresados por teclado se agregaron 
+            al primer miembro, entonces la función ingresa a la primera sección del bloque y cierra el primer miembro, valorizando la variable <em>oper</em>(que indica la operación a realizar) y dando el contról al segundo miembro para que puedan agregarse 
+            valores numéricos a través del teclado para completar la operación.
+        </p>
+        <p class="text m-0">
+            En caso de que el puntero se encuentre en el segundo miembro, verifica mediante un bloque condicional interno <em>if</em> si el segundo miembro no está vacío, en caso de que sí no continuaría ya que no habrían dos miembros para realizar la operación.
+            Si por el otro lado, el segundo miembro tuviera un valor, pero el primero no, lo valorizaría con un valor '0', esto lo hace para solventar aquellos casos en donde se utiliza el signo menos como indicador de número negativo de un valor ingresado. 
+            Una vez resueltos estos condicionales, procedería a llamar a una función <em>resolve()</em> que toma los miembros, la operación a realizar entre ellos y devuelve un resultado, que esta función espera a que termine de completarse para luego mostrarla en pantalla.
+        </p>
+    </div>
     <hr>
 
-    <h2 #target7 class="title">Cómo toma los números la calculadora?</h2>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-        Mollitia, placeat voluptatibus magnam amet dolorem incidunt 
-        hic quam ipsam alias aspernatur in debitis optio nesciunt! 
-        Delectus dignissimos culpa excepturi veniam dolores.
-    </p>
-    <hr>
-
-    <h2 #target8 class="title">Definiendo una función para operaciones simples</h2>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-        Mollitia, placeat voluptatibus magnam amet dolorem incidunt 
-        hic quam ipsam alias aspernatur in debitis optio nesciunt! 
-        Delectus dignissimos culpa excepturi veniam dolores.
-    </p>
-    <hr>
-
-    <h2 #target9 class="title">Definiendo una función para operaciones de un solo valor</h2>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-        Mollitia, placeat voluptatibus magnam amet dolorem incidunt 
-        hic quam ipsam alias aspernatur in debitis optio nesciunt! 
-        Delectus dignissimos culpa excepturi veniam dolores.
-    </p>
-    <hr>
-
-    <h2 #target10 class="title" >Obteniendo el resultado de las operaciones y mostrándolas en pantalla</h2>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-        Mollitia, placeat voluptatibus magnam amet dolorem incidunt 
-        hic quam ipsam alias aspernatur in debitis optio nesciunt! 
-        Delectus dignissimos culpa excepturi veniam dolores.
-    </p>
+    <div class="article-box">
+        <h2 #target8 class="title" >Obteniendo el resultado de las operaciones y mostrándolas en pantalla</h2>
+        <p class="text">
+            El resultado de las operaciones realizadas en la aplicación calculadora se muestra en pantalla luego de haber realizado una de dos acciones, oprimir el botón <em>igual(=)</em> o presionando cualquier botón de las operaciones simples, como ser, <em>suma, resta, producto o cociente</em>.
+            La función que realiza esto en la aplicación lleva el nombre de <em>getResult()</em>, pero esta es solo una aplicación intermedia, la verdadera función que ejecuta las operaciones es la función asíncrona <em>resolve()</em>. 
+        </p>
+        <div class="img-box">
+            <img class="img-fluid img-style" src="../../../assets/images/get-result.png" alt="get-result">
+        </div>
+        <p class="text m-0">
+            La imagen anterior muestra la función intermedia <em>getResult()</em>. Esta función es llamada por el botón <em>igual(=)</em> o alguna otra función que necesite procesar el resultado de una operación.
+        </p>
+        <p class="text m-0">
+            Esta función determina las condiciones para obtener el resultado de una operación basándose en si ambos miembros tienen valores, si solo el primer miembro tiene un valor o si solo el segundo lo tiene, según sea el caso, realizará diversas operaciones antes de enviar el contról a la función <em>Resolve()</em> 
+            para que entregue un resultado. Resultado que luego de recibirlo, lo mostrará en pantalla.
+        </p>
+        <div class="img-box">
+            <img class="img-fluid img-style" src="../../../assets/images/resolve.png" alt="resolve">
+        </div>
+        <p class="text m-0">
+            En esta función llamada <em>resolve()</em> asíncrona que devuelve una promesa es donde se resuelven todas las operaciones. La misma inicia con un bucle de tipo <em>switch</em> que es el encargado de determinar la operación 
+            a ejecutar dependiendo del tipo de operación elegida. Luego de esto, se realiza un parseo de los valores a tipo coma flotante, para poder operar sobre los valores numéricos con decimales y por último se ejecuta la operación. 
+            El resultado de dicha operación es el que se devuelve como una promesa a la función que lo llamó y así ésta puede mostrarlo en la pantalla.
+        </p>
+    </div>
     <hr>
 </section>
