@@ -1,20 +1,48 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
-            <div style="height: 200px; width: 100%; border: 1px solid black;">
-                {{ aiMessage }}
-            </div>
-            <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
-                <input 
-                    type="text"
-                    class="form-control"
-                    id="message"
-                    name="message"
-                    [(ngModel)]="message"
-                    required
-                >
-                <input type="submit" value="Enviar" [disabled]="formulario.invalid">
-            </form>
+        <div class="col-md-6 m-auto">
+            <mat-card class="card-chat">
+                <div class="box-chat">
+                    <mat-card-content>
+                        <div class="box-message" *ngFor="let chat of listMessage" [style.margin-left]="(chat.user == 'AI')?'0':'auto'">
+                            <p>
+                                {{ chat.user }}
+                            </p>
+                            <hr>
+                            <p>
+                                {{ chat.message }}
+                            </p>
+                        </div>
+                    </mat-card-content>
+                    <mat-divider></mat-divider>
+                    <mat-card-actions>
+                        <form class="w-100" #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
+                        <div class="input-group">
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    placeholder="Escribí aquí..."
+                                    aria-describedby="button-addon2"
+                                    id="message"
+                                    name="message"
+                                    [(ngModel)]="message"
+                                    required
+                                >
+                                <button 
+                                    class="btn" 
+                                    type="submit" 
+                                    id="button-addon2" 
+                                    [disabled]="formulario.invalid"
+                                    mat-flat-button color="primary"
+                                >Enviar</button>
+                            </div>
+                        </form>
+                    </mat-card-actions>
+                </div>
+                <mat-card-footer>
+                  <mat-progress-bar mode='indeterminate' *ngIf="onResponse"></mat-progress-bar>
+                </mat-card-footer>
+              </mat-card>
         </div>
     </div>
 </div>

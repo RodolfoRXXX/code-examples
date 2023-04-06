@@ -8,28 +8,31 @@ import { ChatgptService } from 'src/app/services/chatgpt.service';
 })
 export class ChatComponent {
 
-  message = '';
-  aiMessage = '';
+  message= '';
+  onResponse = false;
+
+  listMessage: any = [
+    {user: 'ME', message: 'Hola, cómo estás?'},
+    {user: 'AI', message: 'Bien, y tu?'}
+  ];
 
   constructor(
     private svcGPT : ChatgptService
   ) {}
 
   sendMessage( msg: any ) {
-
-    console.log(msg)
-
-    this.message = msg;
-
-    this.svcGPT.getResponse(this.message).subscribe( (res) => {
-      console.log(res.data.choices[0].text);
-      this.aiMessage = res.data.choices[0].text;
+    this.onResponse = false;
+    this.svcGPT.getResponse(msg).subscribe( (res) => {
+      this.listMessage.push({ user: 'AI', message: res.data.choices[0].text })
+      console.log(this.listMessage);
+      console.log(this.listMessage);
+      this.message = '';
     })
-    this.message = '';
-
   }
 
   onSubmit(form: any): void {
+    this.onResponse = true;
+    this.listMessage.push({ user: 'ME', message: form.value.message })
     this.sendMessage(form.value.message)
   }
 
