@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ChatgptService } from 'src/app/chatgpt.service';
+import { ChatgptService } from 'src/app/services/chatgpt.service';
 
 @Component({
   selector: 'app-chat',
@@ -8,22 +8,29 @@ import { ChatgptService } from 'src/app/chatgpt.service';
 })
 export class ChatComponent {
 
-  userMessage = 'Hi, How are you?';
-  messages = [{}];
+  message = '';
+  aiMessage = '';
 
   constructor(
     private svcGPT : ChatgptService
   ) {}
 
-  sendMessage() {
-    this.messages.push({ author: 'Me', message: this.userMessage });
+  sendMessage( msg: any ) {
 
-    this.svcGPT.getResponse(this.userMessage).subscribe( (response:any) => {
-      const aiMessage = response.choices[0].text.trim();
-      this.messages.push({ author: 'AI', message: aiMessage });
-      this.userMessage = '';
-      console.log(this.messages);
+    console.log(msg)
+
+    this.message = msg;
+
+    this.svcGPT.getResponse(this.message).subscribe( (res) => {
+      console.log(res.data.choices[0].text);
+      this.aiMessage = res.data.choices[0].text;
     })
+    this.message = '';
+
+  }
+
+  onSubmit(form: any): void {
+    this.sendMessage(form.value.message)
   }
 
 }
