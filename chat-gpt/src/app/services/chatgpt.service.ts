@@ -32,13 +32,13 @@ export class ChatgptService {
   getResponse( userMessage: any ): Observable<any> {
 
     return from(
-      /*this.openai.createCompletion({
+      this.openai.createCompletion({
         model: 'text-davinci-003',
         prompt: userMessage,
-        max_tokens: 100,
-        temperature: 0.7
-      })*/
-      this.openai.createCompletion({
+        max_tokens: 150,
+        temperature: 0.5
+      })
+      /*this.openai.createCompletion({
         model: "text-davinci-003",
         prompt: userMessage,
         temperature: 0.9,
@@ -47,7 +47,7 @@ export class ChatgptService {
         frequency_penalty: 0.0,
         presence_penalty: 0.6,
         stop: [" Human:", " AI:"],
-      })
+      })*/
 
     );
 

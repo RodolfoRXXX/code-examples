@@ -10,30 +10,31 @@ export class ChatComponent {
 
   message= '';
   onResponse = false;
+  date = new Date;
 
-  listMessage: any = [
-    {user: 'ME', message: 'Hola, cómo estás?'},
-    {user: 'AI', message: 'Bien, y tu?'}
-  ];
+  listMessage: any = [];
 
   constructor(
     private svcGPT : ChatgptService
   ) {}
 
   sendMessage( msg: any ) {
-    this.onResponse = false;
     this.svcGPT.getResponse(msg).subscribe( (res) => {
-      this.listMessage.push({ user: 'AI', message: res.data.choices[0].text })
-      console.log(this.listMessage);
-      console.log(this.listMessage);
-      this.message = '';
+      this.onResponse = false;
+      this.listMessage.push({ user: 'AI', message: res.data.choices[0].text, date: (this.date.getHours() + ':' + this.date.getMinutes()).toString() });
     })
   }
 
   onSubmit(form: any): void {
+    this.message = '';
     this.onResponse = true;
-    this.listMessage.push({ user: 'ME', message: form.value.message })
+    this.listMessage.push({ user: 'YO', message: form.value.message, date: (this.date.getHours() + ':' + this.date.getMinutes()).toString() })
+    window.scroll({ top: 1000, behavior: 'smooth' });
     this.sendMessage(form.value.message)
+  }
+
+  del_chat(): void {
+    this.listMessage = [];
   }
 
 }

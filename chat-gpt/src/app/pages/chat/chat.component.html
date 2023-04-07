@@ -2,15 +2,28 @@
     <div class="row">
         <div class="col-md-6 m-auto">
             <mat-card class="card-chat">
+                <button mat-fab color="primary" class="btn-clean" aria-label="Delete conversation" (click)="del_chat()" matTooltip="Borrar">
+                    <mat-icon>delete</mat-icon>
+                </button>
                 <div class="box-chat">
                     <mat-card-content>
-                        <div class="box-message" *ngFor="let chat of listMessage" [style.margin-left]="(chat.user == 'AI')?'0':'auto'">
+                        <div class="box-message" 
+                             *ngFor="let chat of listMessage" 
+                             [style.margin-left]="(chat.user == 'AI')?'0':'auto'"
+                             [style.border-bottom-left-radius]="(chat.user == 'AI')?'0':'20px'"
+                             [style.border-bottom-right-radius]="(chat.user == 'YO')?'0':'20px'"
+                             [style.background-color]="(chat.user == 'AI')?'#9CF8DC':'#fff'"      
+                        >
                             <p>
                                 {{ chat.user }}
                             </p>
                             <hr>
                             <p>
                                 {{ chat.message }}
+                            </p>
+                            <hr>
+                            <p>
+                                {{ chat.date }}
                             </p>
                         </div>
                     </mat-card-content>
@@ -40,7 +53,7 @@
                     </mat-card-actions>
                 </div>
                 <mat-card-footer>
-                  <mat-progress-bar mode='indeterminate' *ngIf="onResponse"></mat-progress-bar>
+                  <mat-progress-bar mode='indeterminate' *ngIf = onResponse></mat-progress-bar>
                 </mat-card-footer>
               </mat-card>
         </div>
